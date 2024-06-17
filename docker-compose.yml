@@ -1,0 +1,39 @@
+services:
+  db:
+    image: postgres:13-alpine
+    volumes:
+      - 'db:/var/lib/postgresql/data/'
+    environment:
+      - POSTGRES_DB=tasks
+      - POSTGRES_USER=dbuser
+      - POSTGRES_PASSWORD=dbpass
+
+  app:
+      build: .
+      command: >
+        sh -c "python manage.py migrate &&
+        gunicorn tasks.wsgi:application --bind 0.0.0.0:8000"
+      expose: 
+        - '8000:8000'
+      volumes:
+        - ./tasks:/tasks
+      environment:
+        - DEBUG=True
+        - DB_HOST=db
+        - DB_NAME=tasks
+        - DB_USER=dbuser
+        - DB_PASS=dbpass
+      depends_on:
+        - db  
+
+  nginx:
+    build: ./nginx
+    volumes:
+      - ./tasks/main/web/staticfiles:/tasks/main/web/staticfiles
+    ports:
+      - 8000:80
+    depends_on:
+      - app
+
+volumes:
+  db:
