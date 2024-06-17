@@ -1,4 +1,7 @@
-## How to start an aplication
+# How to start an aplication
 
-# start a virtual environment
+### start a virtual environment
 ```venv/Scripts/Activate.bat ```
+### run docker
+``` docker-compose up ```
+
