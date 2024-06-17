@@ -6,7 +6,7 @@ This is a simple web application built for learning purposes. It uses the Django
 - [Run tests](#tests)
 - [Format code](#formatCode)
 - [API documentation](#API)
-<a id='app'>
+<a id='app'></a>
 # How to start an application
 ### 1. Create a virtual environment 
 Although venv is not needed it is highly recommended. To create and run it use:
@@ -23,18 +23,18 @@ pip install -r requirements.txt
  docker-compose up # -d flag for running app in the background
 ```
 how does it work? Docker automates the deployment process, enabling us to launch an application with a single command. Gunicorn, on the other hand, creates multiple worker processes to manage incoming requests. Meanwhile, Nginx is responsible for handling static files.
-</a>
-<a id='tests'>
+
+<a id='tests'></a>
 # Running tests
 ```bash
 pytest
 ```
-</a>
-<a id='formatCode'>
+
+<a id='formatCode'> </a>
 # Formatting your code 
 ```bash
 ruff format
 ```
- </a>
+
 # API documentation <a id='API'></a>
 
