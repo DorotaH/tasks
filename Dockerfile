@@ -14,9 +14,6 @@ COPY tasks ./tasks
 
 ENV HOME=/tasks
 RUN mkdir $HOME/staticfiles
-WORKDIR /tasks/tasks
-
-RUN python manage.py collectstatic --no-input
 
 WORKDIR /tasks
 EXPOSE 8000

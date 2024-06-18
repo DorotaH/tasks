@@ -11,10 +11,11 @@ services:
   app:
       build: .
       command: >
-        sh -c "python manage.py migrate &&
+        sh -c "python manage.py collectstatic --no-input &&
+        python manage.py migrate &&
         gunicorn tasks.wsgi:application --bind 0.0.0.0:8000"
       expose: 
-        - '8000:8000'
+        - "8000"
       volumes:
         - ./tasks:/tasks
       environment:
@@ -31,7 +32,7 @@ services:
     volumes:
       - ./tasks/main/web/staticfiles:/tasks/main/web/staticfiles
     ports:
-      - 8000:80
+      - '8000:80'
     depends_on:
       - app
 
