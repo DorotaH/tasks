@@ -12,7 +12,7 @@ This is a simple web application built for learning purposes. It uses the Django
 Although venv is not needed it is highly recommended. To create and run it use:
 ```bash
  python -m venv venv
- venv\Script\activate # on Linux source venv/bin/activate
+ source venv/bin/activate # on Windows venv\Script\activate 
 ```
 ### 2. Install dependencies
 ```bash
