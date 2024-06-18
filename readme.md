@@ -35,10 +35,36 @@ pytest
 ```bash
 ruff format
 ```
-
-# API documentation <a id='API'></a>
-### Testing authentication
+<a id='API'></a>
+# API documentation 
+## Tasks Endpoints
+curl is command-line tool used to transfer data to or from a server,
+- The -X option specifies the request method to use (e.g., POST, PUT, DELETE, etc.), with GET being the default method,
+- The URL specifies where we want the request to be sent,
+- The -H option allows for adding headers. In this case, we are adding the Authorization header as we need to be logged in to be able to access tasks,
+- The -d option sends specific information in the request body, with the data being URL-encoded,
+- *To filter tasks, we need to change the URL to include the parameters we want to search for.
+### get all tasks
 ```bash
-curl -X GET http://127.0.0.1:8000/api/example/ -H 'Authorization: Token 9944b09199c62bcf9418ad846dd0e4bbdfc6ee4b'
+ curl http://127.0.0.1:8000/tasks/ -H 'Authorization: Basic example_token'
 ```
-
+### get tasks with params
+```bash
+ curl http://127.0.0.1:8000/tasks/?search=example&status=N&name=name -H 'Authorization: Basic example_token
+```
+### create task
+```bash
+ curl -X POST http://127.0.0.1:8000/tasks/ -H "Authorization: Basic example_token" -d "name=NewTask&description=Taskdescription&status=P&user=1"
+```
+### get task by id
+```bash
+ curl http://127.0.0.1:8000/tasks/1/ -H "Authorization: Basic example_token"
+```
+### modify a task by id
+```bash
+ curl -X PUT http://127.0.0.1:8000/tasks/1/ -H "Authorization: Basic example_token" -d "name=newName&description=newDescription&status=C&user=1"
+```
+### Delete a task by id
+```bash
+ curl -X DELETE http://127.0.0.1:8000/tasks/1/ -H "Authorization: Basic example_token" 
+```
