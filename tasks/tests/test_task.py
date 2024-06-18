@@ -1,5 +1,6 @@
 import pytest
 
-@pytest.mark.unit
+
+@pytest.mark.django_db
 def test_something(self):
     pass

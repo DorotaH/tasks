@@ -8,5 +8,4 @@ urlpatterns = [
     path("create_user/", views.CreateUserView.as_view(), name="create_user"),
     path("user/", views.GetUserView.as_view(), name="user"),
     path("", include(router.urls)),
-    ]
-
+]

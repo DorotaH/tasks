@@ -8,6 +8,7 @@ class TaskSerializer(ModelSerializer):
         model = Task
         fields = ["name", "description", "status", "user"]
 
+
 class UserSerializer(ModelSerializer):
     class Meta:
         model = get_user_model()
@@ -20,4 +21,3 @@ class UserSerializer(ModelSerializer):
         user.set_password(password)
         user.save()
         return user
-    
