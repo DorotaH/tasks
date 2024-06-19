@@ -46,28 +46,7 @@ curl is a command-line tool used to transfer data to or from a server. Swagger p
 - The -H option allows for adding headers. In this case, we are adding the Authorization header as we need to be logged in to be able to access tasks,
 - The -d option sends specific information in the request body, with the data being URL-encoded,
 - *To filter tasks, we need to change the URL to include the parameters we want to search for.
-## Tasks Endpoints examples
-### 1. Get all tasks
+### GET list of all tasks cURL example
 ```bash
  curl http://127.0.0.1:8000/tasks/ -H 'Authorization: Basic example_token'
-```
-### 2. Get tasks with params
-```bash
- curl http://127.0.0.1:8000/tasks/?search=example&status=N&name=name -H 'Authorization: Basic example_token
-```
-### 3. Create task
-```bash
- curl -X POST http://127.0.0.1:8000/tasks/ -H "Authorization: Basic example_token" -d "name=NewTask&description=Taskdescription&status=P&user=1"
-```
-### 4. Get task by id
-```bash
- curl http://127.0.0.1:8000/tasks/1/ -H "Authorization: Basic example_token"
-```
-### 5. Modify a task by id
-```bash
- curl -X PUT http://127.0.0.1:8000/tasks/1/ -H "Authorization: Basic example_token" -d "name=newName&description=newDescription&status=C&user=1"
-```
-### 6. Delete a task by id
-```bash
- curl -X DELETE http://127.0.0.1:8000/tasks/1/ -H "Authorization: Basic example_token" 
 ```
