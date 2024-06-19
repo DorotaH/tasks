@@ -3,7 +3,7 @@ class XForwardedPortMiddleware:
         self.get_response = get_response
 
     def __call__(self, request):
-        x_forwarded_port = request.META.get('HTTP_X_FORWARDED_PORT')
+        x_forwarded_port = request.META.get("HTTP_X_FORWARDED_PORT")
         if x_forwarded_port:
             # Save the original get_host method so we can restore it later
             original_get_host = request.get_host

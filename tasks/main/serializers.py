@@ -3,13 +3,16 @@ from .models import Task
 from django.contrib.auth import get_user_model
 from simple_history.models import HistoricalRecords
 
+
 class HistorySerializer(ModelSerializer):
     class Meta:
         model = Task.history.model
         fields = "__all__"
 
+
 class TaskSerializer(ModelSerializer):
-    history = HistorySerializer(source='history.all', many=True, read_only=True)
+    history = HistorySerializer(source="history.all", many=True, read_only=True)
+
     class Meta:
         model = Task
         fields = ["id", "name", "description", "status", "user", "history"]
@@ -28,4 +31,3 @@ class UserSerializer(ModelSerializer):
         user.set_password(password)
         user.save()
         return user
-    
