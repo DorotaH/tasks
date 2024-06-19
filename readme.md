@@ -37,14 +37,16 @@ ruff format
 ```
 <a id='API'></a>
 # API documentation 
-API is located at URL http://127.0.0.1:8000/docs. Simply log in, choose what request method u need and 'try it out'!<br/>
-curl is command-line tool used to transfer data to or from a server,
+You can access the API endpoints via Swagger at http://127.0.0.1:8000/docs.<br/>
+### using cURL
+curl is a command-line tool used to transfer data to or from a server. Swagger provides examples of how to send data to URLs using cURL.
+### Key cURL options
 - The -X option specifies the request method to use (e.g., POST, PUT, DELETE, etc.), with GET being the default method,
 - The URL specifies where we want the request to be sent,
 - The -H option allows for adding headers. In this case, we are adding the Authorization header as we need to be logged in to be able to access tasks,
 - The -d option sends specific information in the request body, with the data being URL-encoded,
 - *To filter tasks, we need to change the URL to include the parameters we want to search for.
-## Tasks Endpoints
+## Tasks Endpoints examples
 ### 1. Get all tasks
 ```bash
  curl http://127.0.0.1:8000/tasks/ -H 'Authorization: Basic example_token'
