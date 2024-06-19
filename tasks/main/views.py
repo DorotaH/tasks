@@ -17,7 +17,7 @@ class TaskViewSet(viewsets.ModelViewSet):
     queryset = Task.objects.all()
     filter_backends = [filters.SearchFilter, DjangoFilterBackend]
     search_fields = ["description", "name"]
-    filterset_fields = ["name", "status", "user"]
+    filterset_fields = ["id", "name", "status", "user"]
 
 
 class GetUserView(generics.RetrieveUpdateAPIView):
